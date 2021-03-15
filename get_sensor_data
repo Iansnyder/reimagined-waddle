@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+
+import datetime
+from sense_hat import SenseHat
+
+date = datetime.datetime.now()
+path = "/data/"
+filename ="sensordata" + str(date.year) + str(date.month) + str(date.day)
+
+with open( path + filename, "a") as file_object:
+    sense = SenseHat()
+    temp = round(sense.get_temperature(), 3)
+    humidity = round(sense.get_humidity(), 3)    
+    file_object.write(str(temp) +',' + str(humidity) + ',' + str(date.hour) +
+            ":" + str(date.minute) + '\n')
