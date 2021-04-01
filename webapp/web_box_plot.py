@@ -16,9 +16,9 @@ def show_box_plot():
 
     # date information
     numeric_string = recent_data[10:]
-    date_year = numeric_string[:4] 
-    date_month = numeric_string[4]
-    date_day = numeric_string[5:]
+    date_year = numeric_string.split('-')[0] 
+    date_month = numeric_string.split('-')[1]
+    date_day = numeric_string.split('-')[2]
     date_string = date_month + '-' + date_day + '-' + date_year
 
     box_plot = pygal.Box()
