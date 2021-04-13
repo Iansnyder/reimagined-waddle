@@ -2,6 +2,7 @@ from flask import Flask,render_template
 import pandas as pd
 import pygal
 import os
+import math
 from sense_hat import SenseHat
 from time import sleep
 from time import asctime
@@ -22,7 +23,9 @@ def show_box_plot():
     today_date_string = create_date_string(today_file)
     yesterday_date_string = create_date_string(yesterday_file)
 
-    box_plot = pygal.Box()
+    range_lo = math.floor(min(df_today['temperature'].tolist()) - 1)
+    range_hi = math.ceil(max(df_today['temperature'].tolist()) + 1)
+    box_plot = pygal.Box(range=(range_lo, range_hi))        # range does not seem to work
     box_plot.title = 'Average Temperature readings Celcius'
     box_plot.add(today_date_string, df_today['temperature'].tolist())
     box_plot.add(yesterday_date_string, df_yesterday['temperature'].tolist())
@@ -45,7 +48,7 @@ def index():
         "Temperature": currentTemperature,
         "Humidity": currentHumidity
     }
-    return render_template("index.html",**sensorData)
+    return render_template("index2.html",**sensorData)
 
 if __name__ == '__main__':
     app.run(debug = False, host = '0.0.0.0')

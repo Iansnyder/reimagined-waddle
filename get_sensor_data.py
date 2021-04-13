@@ -5,7 +5,10 @@ from sense_hat import SenseHat
 
 date = datetime.datetime.now()
 path = "/data/"
-filename ="sensordata" + str(date.year) + '-' + str(date.month) + '-' + str(date.day)
+day = str(date.day)
+if len(day) < 2:
+    day = '0' + day
+filename ="sensordata" + str(date.year) + '-' + str(date.month) + '-' + day
 filepath = path + filename
 
 exists = os.path.exists(filepath)
