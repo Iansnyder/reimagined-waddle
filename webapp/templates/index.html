@@ -4,7 +4,17 @@
   </head>
   <body>
     <h1>Sensor Data:</h1>
-    <h2>Temperature: {{Temperature}} °C</h2>
-    <h2>Humidity: {{Humidity}}%</h2>
+    <h2>Current Temperature: {{Temperature}} °C</h2>
+    <h2>Current Humidity: {{Humidity}}%</h2>
+    
+    <h3>Sensor Box Plot Data:</h3>
+    <form method = "post" action = "http://localhost:5000/selectbox">
+      <select name = "dropdownitem">
+        {% for item in dropdown %}
+        <option value = "{{item}}" SELECTED>{{item}}</option>
+        {% endfor %}
+      </select>
+      <button type = "submit" >Go</button>
+    </form>
   </body>
 </html>
