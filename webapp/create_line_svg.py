@@ -42,3 +42,4 @@ if __name__ == "__main__":
     
     
     create_svg(dates_list, avg_temps, avg_humidities)
+    
