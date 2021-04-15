@@ -9,7 +9,7 @@
     <h2>Current Humidity: {{Humidity}}%</h2>
     
     <h3>Sensor Box Plot Data:</h3>
-    <form method = "post" action = "http://localhost:5000/selectbox">
+    <form method = "post" action = "/selectbox">
       <select name = "dropdownitem">
         {% for item in dropdown %}
         <option value = "{{item}}" SELECTED>{{item}}</option>
