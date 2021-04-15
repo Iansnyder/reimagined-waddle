@@ -1,7 +1,6 @@
 import pygal
 import os
 import pandas as pd
-from web_box_plot import create_date_string
 
 datapath = '/data'
 
@@ -25,8 +24,14 @@ def create_svg(name_list, temp_list, humid_list):
     humid_line.add('Average', humid_list)
     humid_line.render_to_file('static/humidity.svg')
 
+def create_date_string(filename):
+    numeric_string = filename[10:]
+    date_year = numeric_string.split('-')[0] 
+    date_month = numeric_string.split('-')[1]
+    date_day = numeric_string.split('-')[2]
+    return date_month + '-' + date_day + '-' + date_year
 
-if __name__ == "__main__":
+def create_svg_start():
     files = os.listdir(datapath)
     files.sort()
     files = files[-10:] # get last ten days of data
@@ -40,6 +45,7 @@ if __name__ == "__main__":
         avg_humidities.append(round(avg_humidity, 3))
         dates_list.append(create_date_string(filename))
     
-    
     create_svg(dates_list, avg_temps, avg_humidities)
     
+if __name__ == "__main__":
+    create_svg_main()

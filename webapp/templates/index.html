@@ -1,6 +1,7 @@
 <html>
   <head>
-    <link rel = "stylesheet" href = "/static/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel = "stylesheet" href = "/static/style.css"/>
   </head>
   <body>
     <h1>Sensor Data:</h1>
@@ -16,5 +17,18 @@
       </select>
       <button type = "submit" >Go</button>
     </form>
+
+    <h3><a href="/box">Two day summary comparison</a></h3>
+
+    <hr class="solid">
+      <div class="row">
+        <div class="column">
+          <img src="/static/humidity.svg" alt="10 day humidity average">
+        </div>
+        <div class="column">
+          <img src="/static/temperature.svg" alt="10 day temperature average">
+        </div>
+      </div>
+    <hr class="solid">
   </body>
 </html>

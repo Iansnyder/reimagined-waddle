@@ -9,10 +9,15 @@ h1 {
 	margin-bottom: 40px;
 	padding: 10px;
 }
+
+* {
+	box-sizing: border-box;
+}
   
 .column {
 	float: left;
 	width: 50%;
+	margin: 0;
 	padding: 10px;
 }
 

@@ -23,9 +23,9 @@ def show_box_plot():
     today_date_string = create_date_string(today_file)
     yesterday_date_string = create_date_string(yesterday_file)
 
-    range_lo = math.floor(min(df_today['temperature'].tolist()) - 1)
-    range_hi = math.ceil(max(df_today['temperature'].tolist()) + 1)
-    box_plot = pygal.Box(range=(range_lo, range_hi))        # range does not seem to work
+
+    box_plot = pygal.Box()        # range does not seem to work
+    box_plot.zero = min(df_today['temperature']) - .2
     box_plot.title = 'Average Temperature readings Celcius'
     box_plot.add(today_date_string, df_today['temperature'].tolist())
     box_plot.add(yesterday_date_string, df_yesterday['temperature'].tolist())
