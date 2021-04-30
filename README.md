@@ -1,2 +1,2 @@
 # reimagined-waddle
-Source code for the CS270 mecury team development project
+Source code for the CS270 mercury team development project
